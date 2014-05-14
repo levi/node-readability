@@ -21,25 +21,25 @@ Where
 
   * **html** url or html code.
   * **options** is an optional options object
-  * **callback** is the callback to run - `callback(error, article, meta)`
+  * **callback** is the callback to run - `callback(error, resp)`
 
 Example
 
     var read = require('node-readability');
 
-    read('http://howtonode.org/really-simple-file-uploads', function(err, article, meta) {
+    read('http://howtonode.org/really-simple-file-uploads', function(err, resp) {
       // The main body of the page.
-      console.log(article.content);
+      console.log(resp.article.content);
       // The title of the page.
-      console.log(article.title);
+      console.log(resp.article.title);
 
       // The raw HTML code of the page
-      console.log(article.html);
+      console.log(resp.article.html);
       // The document object of the page
-      console.log(article.document);
+      console.log(resp.article.document);
       
       // The response object from request lib
-      console.log(meta);
+      console.log(resp.meta);
     });
 
 **NB** If the page has been marked with charset other than utf-8, it will be converted automatically. Charsets such as GBK, GB2312 is also supported.
@@ -63,7 +63,7 @@ read(url, {
             }
           }
         ]
-      }, function(err, article, response) {});
+      }, function(err, resp) {});
 ```
 ## article object
 

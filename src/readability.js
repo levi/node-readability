@@ -200,7 +200,7 @@ function read(html, options, callback) {
         if (errors) return callback(errors);
         if (!window.document.body) return callback(new Error('No body tag was found.'));
         // add meta information to callback
-        callback(null, new Readability(window.document, options), meta);
+        callback(null, { article: new Readability(window.document, options), meta: meta });
       }
     });
   }
